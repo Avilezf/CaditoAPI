@@ -3,10 +3,15 @@ import bcrypt from 'bcrypt';
 
 const userLoginService = (req: any) => {
     return new Promise( async (resolve, reject) => {
+        if(req == null){
+            reject({ data: "Invalid user id", status: 500 });
+            return;
+        }
+
         try {
-            const user = await userModels.findOne({ username: req.body.username })
+            const user = await userModels.findOne({ username: req?.username});
             if (user) {
-                const validPassword = await bcrypt.compare(req.body.password, user.password);
+                const validPassword = await bcrypt.compare(req?.password, user?.password);
                 if (validPassword) {
                     resolve(user);
                 } else {
@@ -65,7 +70,7 @@ const getUserService = (req: any) => {
             try {
                 const user = await userModels.findById(req.query.user_id,'-password');
                 if (!user) {
-                    resolve({ data: "User not found" });
+                    resolve({ data: "User not found", status: 404 });
                 } else {
                     resolve(user);
                 }

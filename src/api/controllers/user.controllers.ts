@@ -8,7 +8,7 @@ const { userLoginService,
 
 
 const userLogin = async (request : Request, response : Response) => {
-    return userLoginService(request)
+    return userLoginService(request.body)
         .then((res:any) => {
             console.log(res);
             response.status(res.status ?? 200).json(res.data ?? res);
