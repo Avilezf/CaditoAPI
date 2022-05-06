@@ -1,6 +1,6 @@
 ﻿# CaditoAPI
 
-Foobar is a Python library for dealing with word pluralization.
+Backend development for an Amazon/MercadoLibre clone. (1st Project Back-End Subject)
 
 ## Installation
 
