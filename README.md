@@ -12,7 +12,7 @@ npm install
 
 ## Usage
 
-set the variables in the .env (Not the example.env) 
+set the variables in the .env (Not in the example.env) 
 
 example:
 
